@@ -9,6 +9,6 @@ data class Recipe(
     val name: String,
     val ingredients: List<String>,
     val cookingSteps: List<String>,
-    val isFavorite: Boolean,
+    val isFavorite: Boolean = false,
     val author: Author
 )
