@@ -1,14 +1,19 @@
 package id.fathonyfath.tastepedia.flow.main
 
-import android.graphics.Color
+import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.fathonyfath.tastepedia.R
+import id.fathonyfath.tastepedia.extension.animateScaleAnimatorSet
+import id.fathonyfath.tastepedia.extension.loadImage
 import id.fathonyfath.tastepedia.model.Recipe
 
 class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBACK) {
@@ -26,10 +31,20 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBAC
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val recipeImageView = itemView.findViewById<ImageView>(R.id.recipe_image_view)
+        private val context: Context = itemView.context
+
+        private val recipeImageView: ImageView = itemView.findViewById(R.id.recipe_image_view)
+        private val nameTextView: TextView = itemView.findViewById(R.id.name_text_view)
+        private val authorTextView: TextView = itemView.findViewById(R.id.author_text_view)
+        private val favoriteCheckBox: CheckBox = itemView.findViewById(R.id.favorite_check_box)
 
         fun bind(data: Recipe) {
-            recipeImageView.setBackgroundColor(Color.BLUE)
+            this.recipeImageView.loadImage(Uri.parse(data.photoUri))
+            this.nameTextView.text = data.name
+            this.authorTextView.text = context.getString(R.string.subtitle_text, data.author.name)
+            this.favoriteCheckBox.setOnClickListener {
+                animateScaleAnimatorSet(this.favoriteCheckBox)
+            }
         }
     }
 

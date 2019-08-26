@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
 import android.widget.ProgressBar
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.fathonyfath.tastepedia.R
+import id.fathonyfath.tastepedia.extension.PaddingItemDecoration
 import id.fathonyfath.tastepedia.extension.recipeProvider
 import id.fathonyfath.tastepedia.flow.CoroutineActivity
 import kotlinx.coroutines.launch
@@ -28,6 +30,9 @@ class MainActivity : CoroutineActivity() {
 
         this.recipesRecyclerView = findViewById(R.id.recipes_recycler_view)
         this.recipeProgressBar = findViewById(R.id.recipes_progress_bar)
+
+        val itemDecoration = PaddingItemDecoration(this, 4)
+        this.recipesRecyclerView.addItemDecoration(itemDecoration)
 
         this.recipeAdapter = RecipeAdapter()
         this.recipesRecyclerView.layoutManager = LinearLayoutManager(this)

@@ -15,7 +15,6 @@ import java.nio.charset.Charset
 class RecipeProvider(private val context: Context) {
 
     suspend fun getAllRecipe(): List<Recipe> = withContext(Dispatchers.IO) {
-        Log.d("RecipeProvider", "CurrentThread: ${Thread.currentThread().name}")
         val stream = context.assets.open("recipes.json")
         val json = readFileAsString(stream)
         stream.close()
@@ -23,9 +22,8 @@ class RecipeProvider(private val context: Context) {
         return@withContext recipes.map { it.copy(isFavorite = getRecipeFavoriteStatus(it.id)) }
     }
 
-    suspend fun getRecipeByID(recipeId: Int): Recipe? = withContext(Dispatchers.IO) {
+    suspend fun getRecipeById(recipeId: Int): Recipe? = withContext(Dispatchers.IO) {
         val recipes = getAllRecipe()
-        Log.d("RecipeProvider", "CurrentThread: ${Thread.currentThread().name}")
         return@withContext recipes.find { it.id == recipeId }
     }
 
