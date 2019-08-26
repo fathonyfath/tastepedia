@@ -1,8 +1,6 @@
 package id.fathonyfath.tastepedia
 
-import android.app.Activity
 import android.app.Application
-import android.util.Log
 import id.fathonyfath.tastepedia.data.RecipeProvider
 import kotlinx.serialization.UnstableDefault
 
@@ -15,14 +13,7 @@ class MyApplication : Application() {
         super.onCreate()
 
         this.recipeProvider = RecipeProvider(this)
-        Log.d("MyApplication", "List: ${this.recipeProvider.getAllRecipe()}")
     }
 
     fun recipeProvider(): RecipeProvider = this.recipeProvider
 }
-
-@UnstableDefault
-private fun Activity.myApplication(): MyApplication = this.application as MyApplication
-
-@UnstableDefault
-private fun Activity.recipeProvider(): RecipeProvider = this.myApplication().recipeProvider()

@@ -1,7 +1,10 @@
 package id.fathonyfath.tastepedia.data
 
 import android.content.Context
+import android.util.Log
 import id.fathonyfath.tastepedia.model.Recipe
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.io.InputStream
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.internal.ArrayListSerializer
@@ -11,17 +14,19 @@ import java.nio.charset.Charset
 @UnstableDefault
 class RecipeProvider(private val context: Context) {
 
-    fun getAllRecipe(): List<Recipe> {
+    suspend fun getAllRecipe(): List<Recipe> = withContext(Dispatchers.IO) {
+        Log.d("RecipeProvider", "CurrentThread: ${Thread.currentThread().name}")
         val stream = context.assets.open("recipes.json")
         val json = readFileAsString(stream)
         stream.close()
         val recipes = Json.parse(ArrayListSerializer(Recipe.serializer()), json)
-        return recipes.map { it.copy(isFavorite = getRecipeFavoriteStatus(it.id)) }
+        return@withContext recipes.map { it.copy(isFavorite = getRecipeFavoriteStatus(it.id)) }
     }
 
-    fun getRecipeByID(recipeId: Int): Recipe? {
+    suspend fun getRecipeByID(recipeId: Int): Recipe? = withContext(Dispatchers.IO) {
         val recipes = getAllRecipe()
-        return recipes.find { it.id == recipeId }
+        Log.d("RecipeProvider", "CurrentThread: ${Thread.currentThread().name}")
+        return@withContext recipes.find { it.id == recipeId }
     }
 
     private fun readFileAsString(stream: InputStream, charset: Charset = Charsets.UTF_8): String {
