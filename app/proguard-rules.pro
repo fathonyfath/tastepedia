@@ -22,10 +22,10 @@
 
 -keepattributes *Annotation*, InnerClasses
 -dontnote kotlinx.serialization.SerializationKt
--keep,includedescriptorclasses class com.yourcompany.yourpackage.**$$serializer { *; } # <-- change package name to your app's
--keepclassmembers class com.yourcompany.yourpackage.** { # <-- change package name to your app's
+-keep,includedescriptorclasses class id.fathonyfath.tastepedia.**$$serializer { *; } # <-- change package name to your app's
+-keepclassmembers class id.fathonyfath.tastepedia.** { # <-- change package name to your app's
     *** Companion;
 }
--keepclasseswithmembers class com.yourcompany.yourpackage.** { # <-- change package name to your app's
+-keepclasseswithmembers class id.fathonyfath.tastepedia.** { # <-- change package name to your app's
     kotlinx.serialization.KSerializer serializer(...);
 }
