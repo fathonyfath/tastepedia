@@ -31,7 +31,7 @@ class MainActivity : CoroutineActivity() {
         this.recipesRecyclerView = findViewById(R.id.recipes_recycler_view)
         this.recipeProgressBar = findViewById(R.id.recipes_progress_bar)
 
-        val itemDecoration = PaddingItemDecoration(this, 4)
+        val itemDecoration = PaddingItemDecoration(this, 16)
         this.recipesRecyclerView.addItemDecoration(itemDecoration)
 
         this.recipeAdapter = RecipeAdapter()

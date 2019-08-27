@@ -1,13 +1,16 @@
 package id.fathonyfath.tastepedia.flow.main
 
-import android.content.Context
+import android.animation.AnimatorInflater
 import android.net.Uri
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -31,8 +34,13 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBAC
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val context: Context = itemView.context
+        private val context = itemView.context
 
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+        private val animator =
+            AnimatorInflater.loadStateListAnimator(context, R.animator.card_view_elevate)
+
+        private val recipeCardView: CardView = itemView.findViewById(R.id.recipe_card_view)
         private val recipeImageView: ImageView = itemView.findViewById(R.id.recipe_image_view)
         private val nameTextView: TextView = itemView.findViewById(R.id.name_text_view)
         private val authorTextView: TextView = itemView.findViewById(R.id.author_text_view)
@@ -45,6 +53,15 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBAC
             this.favoriteCheckBox.setOnClickListener {
                 animateScaleAnimatorSet(this.favoriteCheckBox)
             }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                this.bindStateListAnimatorToCardView()
+            }
+        }
+
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+        private fun bindStateListAnimatorToCardView() {
+            this.recipeCardView.stateListAnimator = animator
         }
     }
 

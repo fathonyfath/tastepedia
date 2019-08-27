@@ -34,7 +34,7 @@
             "name": "William Gozali",
             "originalUri": "https://www.instagram.com/p/ByzQezlHWzJ/"
         }
-    }, 
+    },
     {
         "id": 2,
         "photoUri": "file:///android_asset/images/64902274_1527958070674844_1035152224935169644_n.jpg",
@@ -63,7 +63,7 @@
             "name": "aniktriwina",
             "originalUri": "https://www.instagram.com/p/Bzb5FXXFrIq/"
         }
-    }, 
+    },
     {
         "id": 3,
         "photoUri": "file:///android_asset/images/66489350_746615675741236_5448623232171307598_n.jpg",
@@ -71,24 +71,24 @@
         "ingredients": [
             "1 ekor ayam (kira\" berat 1,2-1,5 kg)",
             "1 jeruk nipis",
-            "Garam seckpnya", 
-            "3 siung bwg putih, cincang halus", 
-            "5 siung bwg merah, cincang halus", 
-            "2 cm jahe, iris\"", 
-            "1/2 siung bwg bombay, iris", 
-            "1/2 batang daun bwg, potong\"", 
-            "3 bh cabe merah iris serong", 
-            "3 lembar Daun jeruk", 
-            "1/2 sdt lada bubuk", 
-            "1/2 sdt pala bubuk", 
-            "8 sdm Kecap Bango / sesuai selera", 
-            "1-2 sdm kecap asin", 
-            "2 sdm saus tomat", 
-            "3 sdm saus sambal (aq pake saus abc manis pedas)", 
-            "Garam(seckpnya)", 
-            "300 ml Air matang /secukupnya", 
-            "1/2 bh jeruk lemon/ ganti dg air asam jawa sesuai selera. (Jgn ganti jeruk nipis)", 
-            "Minyak goreng utk menumis sckpnya", 
+            "Garam seckpnya",
+            "3 siung bwg putih, cincang halus",
+            "5 siung bwg merah, cincang halus",
+            "2 cm jahe, iris\"",
+            "1/2 siung bwg bombay, iris",
+            "1/2 batang daun bwg, potong\"",
+            "3 bh cabe merah iris serong",
+            "3 lembar Daun jeruk",
+            "1/2 sdt lada bubuk",
+            "1/2 sdt pala bubuk",
+            "8 sdm Kecap Bango / sesuai selera",
+            "1-2 sdm kecap asin",
+            "2 sdm saus tomat",
+            "3 sdm saus sambal (aq pake saus abc manis pedas)",
+            "Garam(seckpnya)",
+            "300 ml Air matang /secukupnya",
+            "1/2 bh jeruk lemon/ ganti dg air asam jawa sesuai selera. (Jgn ganti jeruk nipis)",
+            "Minyak goreng utk menumis sckpnya",
             "Haluskan 6 cabe merah keriting (skip yg ga suka pedas)"
         ],
         "cookingSteps": [
@@ -105,8 +105,7 @@
             "name": "KUMPULAN RESEP RESEP DAPUR",
             "originalUri": "https://www.instagram.com/p/B0f4y92Ay4L/"
         }
-    }, 
-
+    },
     {
         "id": 4,
         "photoUri": "file:///android_asset/images/31474793_232386167513578_8547097515902631936_n.jpg",
@@ -114,11 +113,11 @@
         "ingredients": [
             "100gr mentega",
             "100gr margarine",
-            "2 kuning telur", 
-            "50gr gula halus", 
-            "25gr susu bubuk", 
-            "250-275gr tepung terigu", 
-            "Selai nastar bulat-bulatkan sekitar 5gr", 
+            "2 kuning telur",
+            "50gr gula halus",
+            "25gr susu bubuk",
+            "250-275gr tepung terigu",
+            "Selai nastar bulat-bulatkan sekitar 5gr",
             "Olesan nastar: 2 kuning telur ayam yang omega"
         ],
         "cookingSteps": [
@@ -132,6 +131,176 @@
         "author": {
             "name": "REEN'S KITCHEN",
             "originalUri": "https://www.instagram.com/p/Bil50CelCz_/"
+        }
+    },
+    {
+        "id": 5,
+        "photoUri": "file:///android_asset/images/29714444_2025877344401183_4283029833832726528_n.jpg",
+        "name": "Selai Nanas",
+        "ingredients": [
+            "750gr nanas yang sudah diparut",
+            "100gr gula pasir",
+            "1/4 sdt kayu manis bubuk"
+        ],
+        "cookingSteps": [
+            "Masak nanas dengan api sedang sampai air susut, masukkan gula dan kayu manis bubuk. Aduk rata sampai nanas menggumpal bisa dipulung."
+        ],
+        "author": {
+            "name": "REEN'S KITCHEN",
+            "originalUri": "https://www.instagram.com/p/BhQPqXkliOF/"
+        }
+    },
+    {
+        "id": 6,
+        "photoUri": "file:///android_asset/images/44883112_275435719983695_2407691471113546716_n.jpg",
+        "name": "Donat Oreo",
+        "ingredients": [
+            "300gr tepung cakra",
+            "150gr tepung segitiga",
+            "4 kuning telur",
+            "40gr susu bubuk",
+            "60gr gula",
+            "1,5 sdt ragi",
+            "200-250ml air",
+            "60gr mentega (lebih enak pake mentega, donat terasa lebih empuk)",
+            "1/2 sdt garam",
+            "250gr coklat putih, lelehkan",
+            "250gr oreo powder"
+        ],
+        "cookingSteps": [
+            "Campur tepung, susu bubuk, ragi, gula pasir dan kuning telur",
+            "Masukkan air sedikit2 jangan sekaligus. Dilihat dl adonannya, jika masih ada remah seperti pasir, masukkan 2 sdm. Uleni atau tunggu dl sampe adonan bergumpal. Kalo masih berpasir, masukkan lagi 2 sdm lagi. Masukin cairannya bertahap ya, kalo kebablasan nanti kelembekan dan susah kalis.",
+            "Proses adonan hingga menggumpal atau kalis tapi belom elastis",
+            "Masukkan garam dan mentega. Uleni hingga kalis elastis",
+            "Bulatkan dan diamkan sampai mengembang 2x lipat, sekitar 45 menit",
+            "Kempiskan dan bagi adonan menjadi 45gr",
+            "Bulatkan dan diamkan lagi sekitar 10 menit, jangan over proofing nanti ga keluar white ringnya dan akan menyerap banyak minyak",
+            "Panaskan minyak api kecil saja. Ambil 1 bulatan lalu lubangi dengan jari. Goreng dan balik jika bagian bawah sudah kecoklatan. Balik satu kali saja.",
+            "Celupkan ke coklat putih, tabur oreo powder."
+        ],
+        "author": {
+            "name": "REEN'S KITCHEN",
+            "originalUri": "https://www.instagram.com/p/Bqjowszj6NG/"
+        }
+    },
+    {
+        "id": 7,
+        "photoUri": "file:///android_asset/images/udang-tumis-lada-hitam-foto-resep-utama.jpg",
+        "name": "Udang Tumis Lada Hitam",
+        "ingredients": [
+            "1/2 Kg Udang (ukuran besar, isi 16)",
+            "secukupnya Lada Hitam",
+            "5-7 Siung Bawang Merah",
+            "5-7 Siung Bawang Putih",
+            "10 Cabai Rawit Merah",
+            "Daun Jeruk",
+            "1 sdm Kecap Manis",
+            "Garam",
+            "Penyedap",
+            "secukupnya Margarine",
+            "Jeruk Nipis",
+            "Semua Bumbu bisa disesuaikan dg selera ya Bunda"
+        ],
+        "cookingSteps": [
+            "Bersihkan Udang dg membuang cangkang kepala saja. Setelah itu cuci/bilas dengan air matang dan tiriskan. Kemudian peras jeruk nipis, tambah garam dan tabur Lada Hitam secukupnya. Diamkan 10-15 Menit",
+            "Rajang atau potong bumbu bawang merah, bawang putih dan cabai. Kemudian sisihkan.",
+            "Panaskan wajan dengan memberi margarin secukupnya. Untuk memanggang atau grill udang. Jangan sampai over cook agar tidak terlalu keras.",
+            "Setelah semua udang sdh siap (sdh digrill) panaskan wajan dengan margarine secukupnya untuk menumis bumbu yg sudah siap. Tumis sampai wangi bawang dan cabai matang. Masukan daun jeruk, garam dan penyedap. Terakhir masukan kecap kedalamnya.",
+            "Semua proses tumis bumbu selesai masukan udangbyg sudah digrill tersebut, lalu aduk dengan rata sampai udang bercampur rata dengan bumbu. Setelah itu angkat dan siap sajikan selagi hangat. 😊"
+        ],
+        "author": {
+            "name": "Mama Syarifah",
+            "originalUri": "https://cookpad.com/id/resep/10404669-udang-tumis-lada-hitam"
+        }
+    },
+    {
+        "id": 8,
+        "photoUri": "file:///android_asset/images/orek-tempe-kemangi-foto-resep-utama.jpg",
+        "name": "Orek Tempe Kemangi",
+        "ingredients": [
+            "1 papan tempe, potong dadu",
+            "2 ikat daun kemangi, petiki",
+            "150 ml air",
+            "4 sdm kecap manis",
+            "Secukuonya gula garam",
+            "2 sdm minyak utk mnumis",
+            "Secukupnya minyak goreng utk mnggoreng tempe",
+            "2 lembar dun salam",
+            "6 siung bawang merah, iris2",
+            "3 siung bawang putih, iris2",
+            "2 buah cabe merah, iris serong"
+        ],
+        "cookingSteps": [
+            "Tumis bawang merah, bawang putih dan daun salam sampe harum",
+            "Masukkan tempe dan air, aduk rata",
+            "Tuang kecap, aduk2, masukkan cabe merah, lalu tambahkan bumbu2 lainnya, masak sampe bumbu merasuk dan kuah mnyusut",
+            "Taburi kemangj, aduk sebentar jgn sampe layu banget, llu angkat"
+        ],
+        "author": {
+            "name": "Ayu Putri Irianto",
+            "originalUri": "https://cookpad.com/id/resep/10399104-orek-tempe-kemangi"
+        }
+    },
+    {
+        "id": 9,
+        "photoUri": "file:///android_asset/images/sayur-asam-bening-foto-resep-utama.jpg",
+        "name": "Sayur Asam Bening",
+        "ingredients": [
+            "3 ikat kangkung, petiki",
+            "1 buah tomat, potong2",
+            "600 ml air",
+            "Secukupnya gula garam",
+            "5 siung bawang merah, iris2",
+            "3 siung bawang putih, iris2"
+        ],
+        "cookingSteps": [
+            "Didihkan air+bawang2 dlm panci, lalu masukkan kangkung dan tomat",
+            "Bumbui gula garam dan tes rasa..tunngu sampe mndidih lalu angkat, Masak jgn overcook y biar kangkung tetap renyah vitaminnya tdk hilang.."
+        ],
+        "author": {
+            "name": "Ayu Putri Irianto",
+            "originalUri": "https://cookpad.com/id/resep/10399107-sayur-asam-bening"
+        }
+    },
+    {
+        "id": 10,
+        "photoUri": "file:///android_asset/images/oseng-daging-soto-betawi-foto-resep-utama.jpg",
+        "name": "Oseng Daging Soto Betawi",
+        "ingredients": [
+            "5 butir bawang merah",
+            "3 butir bawang putih",
+            "1/2 sendok teh ketumbar",
+            "1 buah kemiri",
+            "1/2 sendok teh jinten",
+            "1/2 ruas jahe, geprek",
+            "3 lembar daun salam",
+            "3 buah cengkeh",
+            "1/2 ruas lengkuas, geprek",
+            "1/4 sendok teh pala bubuk",
+            "5 lembar daun jeruk",
+            "400 ml santan kental",
+            "300 ml susu cair",
+            "tomat potong2",
+            "jeruk limau",
+            "iris daun bawang",
+            "secukupnya bawang merah iris",
+            "garam",
+            "penyedap",
+            "kecap manis",
+            "bawang goreng untuk taburan",
+            "cabe rawit hijau potong potong",
+            "250 gram Daging sapi/ Jeroan Sapi/ ayam"
+        ],
+        "cookingSteps": [
+            "Rebus daging sampai empuk, angkat lalu potong dadu. Air kaldu daging jangan dibuang.",
+            "Haluskan bawang merah, bawang putih, kemiri, ketumbar, jinten. Lalu tumis sampai harum. Sisihkan",
+            "Kuah soto : Didihkan sisa air kaldu, masukan bumbu yg sudah ditumis. Masukan daun salam, daun jeruk, jahe geprek, lengkuas geprek, cengkeh. Lalu masukan santan dan susu. Aduk rata samoai mendidih, jangan sampai santan pecah. Lalu masukan garam dan penyedap, koreksi rasa. Terakhir masukan mentega",
+            "Oseng daging : Tumis bawang merah iris sampai harum dan kekuningan, masukan daging yang sudah dipotong dadu, tomat, cabe rawit hijau potong, kecap manis, dan sedikit air. Lalu oseng sampai air meresap. Angkat. Sajikan dengan taburan bawang goreng, dan daun bawang.",
+            "Sajikan soto dengan sambal cabe rawit dan potongan jeruk limau."
+        ],
+        "author": {
+            "name": "Noona Hilda",
+            "originalUri": "https://cookpad.com/id/resep/10402919-oseng-daging-soto-betawi"
         }
     }
 ]
