@@ -1,10 +1,14 @@
 package id.fathonyfath.tastepedia.flow.main
 
+import android.animation.AnimatorInflater
+import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.fathonyfath.tastepedia.R
@@ -17,10 +21,13 @@ import kotlinx.serialization.UnstableDefault
 @UnstableDefault
 class MainActivity : CoroutineActivity() {
 
+    private lateinit var toolbar: Toolbar
     private lateinit var recipesRecyclerView: RecyclerView
     private lateinit var recipeProgressBar: ProgressBar
 
     private lateinit var recipeAdapter: RecipeAdapter
+
+    private var lastSavedCanScrollVertically = false
 
     private var layoutManagerState: Parcelable? = null
 
@@ -28,8 +35,23 @@ class MainActivity : CoroutineActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        this.toolbar = findViewById(R.id.toolbar)
         this.recipesRecyclerView = findViewById(R.id.recipes_recycler_view)
         this.recipeProgressBar = findViewById(R.id.recipes_progress_bar)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.setupToolbarStateList()
+        }
+
+        this.recipesRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val canScrollVertically = recyclerView.canScrollVertically(-1)
+                if (canScrollVertically != this@MainActivity.lastSavedCanScrollVertically) {
+                    this@MainActivity.lastSavedCanScrollVertically = canScrollVertically
+                    this@MainActivity.toolbar.isSelected = canScrollVertically
+                }
+            }
+        })
 
         val itemDecoration = PaddingItemDecoration(this, 16)
         this.recipesRecyclerView.addItemDecoration(itemDecoration)
@@ -58,6 +80,12 @@ class MainActivity : CoroutineActivity() {
             ?.let { layoutManagerState ->
                 this.layoutManagerState = layoutManagerState
             }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun setupToolbarStateList() {
+        val animator = AnimatorInflater.loadStateListAnimator(this, R.animator.toolbar_elevate)
+        this.toolbar.stateListAnimator = animator
     }
 
     private suspend fun updateAdapterItem() {

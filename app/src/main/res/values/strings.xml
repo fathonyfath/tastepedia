@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Tastepedia</string>
-    <string name="recipe_image_content_description">Image of recipe</string>
+
+    <string name="recipe_image_description">Image of recipe</string>
+    <string name="back_description">Back</string>
 
     <string name="subtitle_text">by %1$s</string>
 </resources>
