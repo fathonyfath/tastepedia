@@ -1,19 +1,27 @@
 package id.fathonyfath.tastepedia.flow.main
 
 import android.animation.AnimatorInflater
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.fathonyfath.tastepedia.R
 import id.fathonyfath.tastepedia.extension.PaddingItemDecoration
 import id.fathonyfath.tastepedia.extension.recipeProvider
 import id.fathonyfath.tastepedia.flow.CoroutineActivity
+import id.fathonyfath.tastepedia.flow.detail.DetailActivity
+import id.fathonyfath.tastepedia.model.Recipe
 import kotlinx.coroutines.launch
 import kotlinx.serialization.UnstableDefault
 
@@ -33,6 +41,10 @@ class MainActivity : CoroutineActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Intent(this, DetailActivity::class.java).apply {
+            startActivity(this)
+        }
 
         this.toolbar = findViewById(R.id.toolbar)
         this.recipesRecyclerView = findViewById(R.id.recipes_recycler_view)
@@ -58,6 +70,18 @@ class MainActivity : CoroutineActivity() {
         this.recipeAdapter = RecipeAdapter()
         this.recipesRecyclerView.layoutManager = LinearLayoutManager(this)
         this.recipesRecyclerView.adapter = this.recipeAdapter
+
+        this.recipeAdapter.onFavoriteClickListener = { recipe, isChecked ->
+            Toast.makeText(
+                this,
+                "Recipe: $recipe is ${if (isChecked) "favorited" else "not favorited"}.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        this.recipeAdapter.onItemClickListener = { recipe, sharedImageView ->
+            this.navigateToDetail(recipe, sharedImageView)
+        }
 
         uiScope.launch {
             updateAdapterItem()
@@ -85,6 +109,23 @@ class MainActivity : CoroutineActivity() {
     private fun setupToolbarStateList() {
         val animator = AnimatorInflater.loadStateListAnimator(this, R.animator.toolbar_elevate)
         this.toolbar.stateListAnimator = animator
+    }
+
+    private fun navigateToDetail(recipe: Recipe, sharedElement: ImageView) {
+        val intent = Intent(this, DetailActivity::class.java).apply {
+            putExtra(DetailActivity.RECIPE_ID, recipe.id)
+            putExtra(
+                DetailActivity.IMAGE_TRANSITION_NAME,
+                ViewCompat.getTransitionName(sharedElement)
+            )
+        }
+
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this,
+            sharedElement, recipe.id.toString()
+        )
+
+        ActivityCompat.startActivity(this, intent, options.toBundle())
     }
 
     private suspend fun updateAdapterItem() {

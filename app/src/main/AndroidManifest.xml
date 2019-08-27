@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".flow.detail.DetailActivity" />
         <activity android:name=".flow.profile.ProfileActivity" />
     </application>
 
