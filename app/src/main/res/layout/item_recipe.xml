@@ -20,6 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
+        <Space
+            android:id="@+id/constraint_space"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/name_text_view"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_image_view"
+            app:layout_constraintStart_toStartOf="@+id/recipe_image_view"
+            app:layout_constraintTop_toTopOf="@+id/recipe_image_view" />
+
         <ImageView
             android:id="@+id/recipe_image_view"
             android:layout_width="match_parent"
@@ -29,64 +40,61 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="16:9"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+        <View
+            android:id="@+id/background_view"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:background="@color/blackSemiTransparent"
+            app:layout_constraintBottom_toBottomOf="@+id/recipe_image_view"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_image_view"
+            app:layout_constraintStart_toStartOf="@+id/recipe_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_space" />
+
+        <TextView
+            android:id="@+id/name_text_view"
+            style="@style/AppTheme.TextAppearance.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/author_text_view"
+            app:layout_constraintEnd_toStartOf="@+id/favorite_check_box"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/author_text_view"
+            style="@style/AppTheme.TextAppearance.Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintEnd_toStartOf="@+id/favorite_check_box"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@tools:sample/lorem/random" />
 
-            <CheckBox
-                android:id="@+id/favorite_check_box"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp"
-                android:button="@drawable/favorite_selector"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <CheckBox
+            android:id="@+id/favorite_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:button="@drawable/favorite_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <TextView
-                android:id="@+id/name_text_view"
-                style="@style/AppTheme.TextAppearance.Title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/author_text_view"
-                app:layout_constraintEnd_toStartOf="@+id/favorite_check_box"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@tools:sample/lorem/random" />
-
-            <TextView
-                android:id="@+id/author_text_view"
-                style="@style/AppTheme.TextAppearance.Subtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/favorite_check_box"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_text_view"
-                tools:text="@tools:sample/lorem/random" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
