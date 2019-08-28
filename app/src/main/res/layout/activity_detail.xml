@@ -39,6 +39,7 @@
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                 <View
+                    android:id="@+id/detail_background"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/label_background_height"
                     android:layout_gravity="bottom"

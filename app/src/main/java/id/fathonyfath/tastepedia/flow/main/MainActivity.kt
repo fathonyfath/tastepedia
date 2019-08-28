@@ -6,7 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
-import android.widget.ImageView
+import android.view.Window
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -24,6 +24,7 @@ import id.fathonyfath.tastepedia.flow.detail.DetailActivity
 import id.fathonyfath.tastepedia.model.Recipe
 import kotlinx.coroutines.launch
 import kotlinx.serialization.UnstableDefault
+import androidx.core.util.Pair as PairUtil
 
 @UnstableDefault
 class MainActivity : CoroutineActivity() {
@@ -41,10 +42,6 @@ class MainActivity : CoroutineActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        Intent(this, DetailActivity::class.java).apply {
-            startActivity(this)
-        }
 
         this.toolbar = findViewById(R.id.toolbar)
         this.recipesRecyclerView = findViewById(R.id.recipes_recycler_view)
@@ -79,9 +76,11 @@ class MainActivity : CoroutineActivity() {
             ).show()
         }
 
-        this.recipeAdapter.onItemClickListener = { recipe, sharedImageView ->
-            this.navigateToDetail(recipe, sharedImageView)
+        this.recipeAdapter.onItemClickListener = { recipe, sharedView ->
+            this.navigateToDetail(recipe, sharedView)
         }
+
+        ViewCompat.setTransitionName(toolbar, "Toolbar")
 
         uiScope.launch {
             updateAdapterItem()
@@ -111,18 +110,43 @@ class MainActivity : CoroutineActivity() {
         this.toolbar.stateListAnimator = animator
     }
 
-    private fun navigateToDetail(recipe: Recipe, sharedElement: ImageView) {
+    private fun navigateToDetail(recipe: Recipe, sharedElement: List<View>) {
+        var listOfPairTransition = sharedElement.map { view ->
+            return@map PairUtil(view, ViewCompat.getTransitionName(view) ?: "")
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val statusBarView = findViewById<View?>(android.R.id.statusBarBackground)
+            val navigationBarView = findViewById<View?>(android.R.id.navigationBarBackground)
+
+            statusBarView?.let { view ->
+                listOfPairTransition = listOfPairTransition.plus(
+                    PairUtil(
+                        view,
+                        Window.STATUS_BAR_BACKGROUND_TRANSITION_NAME
+                    )
+                )
+            }
+
+            navigationBarView?.let { view ->
+                listOfPairTransition = listOfPairTransition.plus(
+                    PairUtil(
+                        view,
+                        Window.NAVIGATION_BAR_BACKGROUND_TRANSITION_NAME
+                    )
+                )
+            }
+        }
+
         val intent = Intent(this, DetailActivity::class.java).apply {
             putExtra(DetailActivity.RECIPE_ID, recipe.id)
-            putExtra(
-                DetailActivity.IMAGE_TRANSITION_NAME,
-                ViewCompat.getTransitionName(sharedElement)
-            )
         }
+
+        val arrayOfPairTransition = listOfPairTransition.toTypedArray()
 
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
             this,
-            sharedElement, recipe.id.toString()
+            *arrayOfPairTransition
         )
 
         ActivityCompat.startActivity(this, intent, options.toBundle())
