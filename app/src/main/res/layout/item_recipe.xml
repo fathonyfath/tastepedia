@@ -84,16 +84,21 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@tools:sample/lorem/random" />
 
-        <CheckBox
+        <id.fathonyfath.tastepedia.extension.CenteredCheckBox
             android:id="@+id/favorite_check_box"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="48dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:button="@drawable/favorite_selector"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:gravity="center"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/background_view"
+            app:layout_constraintEnd_toEndOf="@+id/background_view"
+            app:layout_constraintTop_toTopOf="@+id/background_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
