@@ -37,6 +37,11 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBAC
         holder.bind(getItem(position), this.onFavoriteClickListener, this.onItemClickListener)
     }
 
+    override fun onViewRecycled(holder: ViewHolder) {
+        super.onViewRecycled(holder)
+
+        holder.unbind()
+    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -59,6 +64,8 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBAC
             this.recipeImageView.loadImage(Uri.parse(data.photoUri))
             this.nameTextView.text = data.name
             this.authorTextView.text = context.getString(R.string.subtitle_text, data.author.name)
+
+            this.favoriteCheckBox.isChecked = data.isFavorite
 
             this.favoriteCheckBox.setOnClickListener {
                 animateScaleAnimatorSet(this.favoriteCheckBox)
@@ -84,6 +91,12 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.ViewHolder>(DIFF_CALLBAC
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 this.bindStateListAnimatorToCardView()
             }
+        }
+
+        fun unbind() {
+            this.favoriteCheckBox.setOnCheckedChangeListener(null)
+            this.favoriteCheckBox.setOnCheckedChangeListener(null)
+            this.recipeCardView.setOnClickListener(null)
         }
 
         @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

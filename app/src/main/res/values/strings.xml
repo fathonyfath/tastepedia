@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">Tastepedia</string>
+    <string name="profile_title">Profile</string>
 
     <string name="recipe_image_description">Image of recipe</string>
     <string name="back_description">Back</string>
 
     <string name="subtitle_text">by %1$s</string>
+    
+    <string name="ingredients_text">Ingredients</string>
+    <string name="cooking_steps_text">Cooking Steps</string>
+    <string name="author_text">Author</string>
+
+    <string name="avatar_description">Avatar</string>
+
+    <string name="profile_name">Fathony Teguh Irawan</string>
+    <string name="profile_email">fathony.teguh@gmail.com</string>
 </resources>

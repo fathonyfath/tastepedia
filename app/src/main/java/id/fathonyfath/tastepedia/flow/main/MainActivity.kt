@@ -8,7 +8,6 @@ import android.os.Parcelable
 import android.view.View
 import android.view.Window
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
@@ -21,6 +20,7 @@ import id.fathonyfath.tastepedia.extension.PaddingItemDecoration
 import id.fathonyfath.tastepedia.extension.recipeProvider
 import id.fathonyfath.tastepedia.flow.CoroutineActivity
 import id.fathonyfath.tastepedia.flow.detail.DetailActivity
+import id.fathonyfath.tastepedia.flow.profile.ProfileActivity
 import id.fathonyfath.tastepedia.model.Recipe
 import kotlinx.coroutines.launch
 import kotlinx.serialization.UnstableDefault
@@ -51,6 +51,17 @@ class MainActivity : CoroutineActivity() {
             this.setupToolbarStateList()
         }
 
+        this.toolbar.inflateMenu(R.menu.menu_main)
+        this.toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_profile -> {
+                    navigateToProfile()
+                    return@setOnMenuItemClickListener true
+                }
+            }
+            return@setOnMenuItemClickListener false
+        }
+
         this.recipesRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val canScrollVertically = recyclerView.canScrollVertically(-1)
@@ -69,11 +80,11 @@ class MainActivity : CoroutineActivity() {
         this.recipesRecyclerView.adapter = this.recipeAdapter
 
         this.recipeAdapter.onFavoriteClickListener = { recipe, isChecked ->
-            Toast.makeText(
-                this,
-                "Recipe: $recipe is ${if (isChecked) "favorited" else "not favorited"}.",
-                Toast.LENGTH_SHORT
-            ).show()
+            uiScope.launch {
+                recipeProvider().updateRecipeFavorite(recipe.id, isChecked)
+                val result = recipeProvider().getAllRecipe()
+                this@MainActivity.recipeAdapter.submitList(result)
+            }
         }
 
         this.recipeAdapter.onItemClickListener = { recipe, sharedView ->
@@ -150,6 +161,12 @@ class MainActivity : CoroutineActivity() {
         )
 
         ActivityCompat.startActivity(this, intent, options.toBundle())
+    }
+
+    private fun navigateToProfile() {
+        Intent(this, ProfileActivity::class.java).apply {
+            startActivity(this)
+        }
     }
 
     private suspend fun updateAdapterItem() {
